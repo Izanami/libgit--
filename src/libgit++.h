@@ -6,9 +6,10 @@
 class Git {
   public:
     Git(const char *path);
-    void exception(int error);
+    static void init(const char *path, const bool bare=false);
 
   private:
      git_repository * repo;
+     static void exception(int error);
 };
 #endif

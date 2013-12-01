@@ -18,3 +18,10 @@ void Git::exception(int error)
         }
     }
 }
+
+
+void Git::init(const char *path, const bool bare) {
+    git_repository *repo = NULL;
+    int error = git_repository_init(&repo, path, bare);
+    exception(error);
+}

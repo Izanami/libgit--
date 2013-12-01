@@ -19,5 +19,6 @@ install_manifest.txt
 *.la
 *.a
 
-# Scripts
+#####
 scripts
+test/test
