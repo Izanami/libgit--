@@ -6,6 +6,7 @@
 class Git {
     public:
     Git(const char *path);
+    void exception(int error);
 
     private:
     git_repository *repo;
