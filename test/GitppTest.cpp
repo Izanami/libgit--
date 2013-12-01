@@ -8,22 +8,30 @@ CPPUNIT_TEST_SUITE_REGISTRATION(GitppTest);
 
 void GitppTest::setUp()
 {
-    tmpdir = unique_path();
-    create_directories(tmpdir);
-    Git::init(tmpdir.string().c_str());
+    path = unique_path();
+    create_directories(path);
+    git = Git::init(path.string().c_str());
 }
 
 void GitppTest::tearDown()
 {
-    boost::filesystem::remove_all(tmpdir);
+    delete git;
+    remove_all(path);
 }
 
-void GitppTest::testInit() {
-    Git::init(tmpdir.string().c_str());
+void GitppTest::testInit()
+{
+    delete Git::init(path.string().c_str());
 }
 
 void GitppTest::testConstructor()
 {
-    Git *git = new Git(tmpdir.string().c_str());
-    delete git;
+    delete new Git(path.string().c_str());
+}
+
+void GitppTest::testClone()
+{
+    boost::filesystem::path tmpdir = unique_path();
+    git->clone(tmpdir.string().c_str());
+    remove_all(tmpdir);
 }
