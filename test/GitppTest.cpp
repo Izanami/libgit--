@@ -1,5 +1,5 @@
 #include "GitppTest.h"
-#include "../src/libgit++.h"
+#include "../src/repo.h"
 
 using namespace boost::filesystem;
 
@@ -10,28 +10,28 @@ void GitppTest::setUp()
 {
     path = unique_path();
     create_directories(path);
-    git = Git::init(path.string().c_str());
+    repo = Git::repo::init(path.string().c_str());
 }
 
 void GitppTest::tearDown()
 {
-    delete git;
+    delete repo;
     remove_all(path);
 }
 
 void GitppTest::testInit()
 {
-    delete Git::init(path.string().c_str());
+    delete Git::repo::init(path.string().c_str());
 }
 
 void GitppTest::testConstructor()
 {
-    delete new Git(path.string().c_str());
+    delete new Git::repo(path.string().c_str());
 }
 
 void GitppTest::testClone()
 {
     boost::filesystem::path tmpdir = unique_path();
-    git->clone(tmpdir.string().c_str());
+    repo->clone(tmpdir.string().c_str());
     remove_all(tmpdir);
 }
