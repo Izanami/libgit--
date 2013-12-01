@@ -3,7 +3,7 @@
 #define GITPP_TEST
 #include <cppunit/extensions/HelperMacros.h>
 #include "boost/filesystem.hpp"
-#include "../src/libgit++.h"
+#include "../src/repo.h"
 
 class GitppTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE(GitppTest);
@@ -13,7 +13,7 @@ class GitppTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE_END();
   private:
     boost::filesystem::path path;
-    Git *git;
+    Git::repo *repo;
 
   public:
     void setUp();
