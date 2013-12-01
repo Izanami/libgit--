@@ -11,7 +11,7 @@ class GitppTest:public CppUnit::TestFixture {
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testClone);
     CPPUNIT_TEST_SUITE_END();
-    private:
+  private:
     boost::filesystem::path path;
     Git *git;
 

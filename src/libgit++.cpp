@@ -6,7 +6,8 @@ Git::Git(const char *path)
     exception(error);
 }
 
-Git::Git(git_repository *repo) {
+Git::Git(git_repository * repo)
+{
     this->repo = repo;
 }
 
@@ -24,20 +25,23 @@ void Git::exception(int error)
 }
 
 
-Git* Git::init(const char *path, const bool bare) {
+Git *Git::init(const char *path, const bool bare)
+{
     git_repository *repo = nullptr;
     int error = git_repository_init(&repo, path, bare);
     exception(error);
     return new Git(repo);
 }
 
-Git* Git::clone(const char *path) {
+Git *Git::clone(const char *path)
+{
     git_repository *repo_clone = nullptr;
     int error = git_clone(&repo_clone, this->path(), path, NULL);
     exception(error);
     return new Git(repo_clone);
 }
 
-const char *Git::path() {
+const char *Git::path()
+{
     return git_repository_path(repo);
 }

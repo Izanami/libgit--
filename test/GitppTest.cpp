@@ -19,7 +19,8 @@ void GitppTest::tearDown()
     remove_all(path);
 }
 
-void GitppTest::testInit() {
+void GitppTest::testInit()
+{
     delete Git::init(path.string().c_str());
 }
 
@@ -28,7 +29,8 @@ void GitppTest::testConstructor()
     delete new Git(path.string().c_str());
 }
 
-void GitppTest::testClone() {
+void GitppTest::testClone()
+{
     boost::filesystem::path tmpdir = unique_path();
     git->clone(tmpdir.string().c_str());
     remove_all(tmpdir);
