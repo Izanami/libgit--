@@ -6,7 +6,15 @@
 class Git {
   public:
     Git(const char *path);
-    static void init(const char *path, const bool bare=false);
+    Git(git_repository *repo);
+    static Git* init(const char *path, const bool bare=false);
+
+    // Clone
+    Git* clone(const char *path);
+    static void clone(const char *url, const char *path);
+
+    // Getter
+    const char* path();
 
   private:
      git_repository * repo;
