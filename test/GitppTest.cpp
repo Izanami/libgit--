@@ -10,7 +10,7 @@ void GitppTest::setUp()
 {
     path = unique_path();
     create_directories(path);
-    repo = Git::repo::init(path.string().c_str());
+    repo = Git::Repo::init(path.string().c_str());
 }
 
 void GitppTest::tearDown()
@@ -21,12 +21,12 @@ void GitppTest::tearDown()
 
 void GitppTest::testInit()
 {
-    delete Git::repo::init(path.string().c_str());
+    delete Git::Repo::init(path.string().c_str());
 }
 
 void GitppTest::testConstructor()
 {
-    delete new Git::repo(path.string().c_str());
+    delete new Git::Repo(path.string().c_str());
 }
 
 void GitppTest::testClone()
@@ -34,4 +34,9 @@ void GitppTest::testClone()
     boost::filesystem::path tmpdir = unique_path();
     repo->clone(tmpdir.string().c_str());
     remove_all(tmpdir);
+}
+
+void GitppTest::testLookup()
+{
+    repo->lookup("HEAD");
 }
