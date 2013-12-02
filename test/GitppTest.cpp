@@ -36,6 +36,7 @@ void GitppTest::testClone()
     remove_all(tmpdir);
 }
 
-void GitppTest::testLookup() {
+void GitppTest::testLookup()
+{
     repo->lookup("HEAD");
 }
