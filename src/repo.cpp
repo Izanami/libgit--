@@ -1,18 +1,19 @@
 #include "repo.h"
 
 namespace Git {
-repo::repo(const char *path)
+Repo::Repo(const char *path)
 {
-    int error = git_repository_open(&repo_c, path);
+    git_threads_init();
+    int error = git_repository_open(&repo, path);
     exception(error);
 }
 
-repo::repo(git_repository * repo)
+Repo::Repo(git_repository * repo)
 {
-    this->repo_c = repo;
+    this->repo = repo;
 }
 
-void repo::exception(int error)
+void Repo::exception(int error)
 {
     if (error < 0) {
         const git_error *e = giterr_last();
@@ -22,29 +23,52 @@ void repo::exception(int error)
         } else {
             throw "libgit++ : No message error";
         }
+        giterr_clear();
     }
 }
 
 
-repo *repo::init(const char *path, const bool bare)
+Repo *Repo::init(const char *path, const bool bare)
 {
-    git_repository *repo_c = nullptr;
-    int error = git_repository_init(&repo_c, path, bare);
+    git_repository *repo = nullptr;
+    int error = git_repository_init(&repo, path, bare);
     exception(error);
-    return new repo(repo_c);
+    return new Repo(repo);
 }
 
-repo *repo::clone(const char *path)
+Repo *Repo::clone(const char *path)
 {
-    git_repository *repo_clone = nullptr;
-    int error = git_clone(&repo_clone, this->path(), path, NULL);
+    git_repository *repolone = nullptr;
+    int error = git_clone(&repolone, this->path(), path, NULL);
     exception(error);
-    return new repo(repo_clone);
+    return new Repo(repolone);
 }
 
-const char *repo::path()
+const char *Repo::path()
 {
-    return git_repository_path(repo_c);
+    return git_repository_path(repo);
 }
 
+void Repo::lookup(const char *commit)
+{
+    git_commit *commit_c;
+    git_oid commit_oid = oid(commit);
+    int error = git_commit_lookup(&commit_c, repo, &commit_oid);
+    exception(error);
 }
+
+git_oid Repo::oid(const char *sha) {
+    git_oid oid;
+    int error = git_oid_fromstr(&oid, sha);
+    exception(error);
+    return oid;
+}
+const char* Repo::oid(git_oid &oid) {
+    char *shortsha = new char[10];
+    git_oid_tostr(shortsha, 9, &oid);
+    return shortsha;
+}
+
+} // Git
+
+

@@ -10,10 +10,11 @@ class GitppTest:public CppUnit::TestFixture {
     CPPUNIT_TEST(testInit);
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testClone);
+    CPPUNIT_TEST(testLookup);
     CPPUNIT_TEST_SUITE_END();
   private:
     boost::filesystem::path path;
-    Git::repo *repo;
+    Git::Repo *repo;
 
   public:
     void setUp();
@@ -21,6 +22,7 @@ class GitppTest:public CppUnit::TestFixture {
     void testInit();
     void testConstructor();
     void testClone();
+    void testLookup();
 
 };
 
