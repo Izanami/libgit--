@@ -14,7 +14,7 @@ class GitppTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE_END();
   private:
     boost::filesystem::path path;
-    Git::Repo * repo;
+    std::shared_ptr <Git::Repo> repo;
 
   public:
     void setUp();
