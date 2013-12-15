@@ -2,12 +2,15 @@
 
 #define GITPP_H
 #include <git2.h>
+#include <memory>
+
 namespace Git {
     class Repo {
       public:
         Repo(const char *path);
          Repo(git_repository * repo);
-        static Repo *init(const char *path, const bool bare = false);
+         ~Repo();
+        static std::shared_ptr <Repo> init(const char *path, const bool bare = false);
 
         // Clone
         Repo *clone(const char *path);
@@ -20,6 +23,7 @@ namespace Git {
         const char *path();
 
       private:
+        Repo(Repo &Repo);
          git_repository * repo;
         static void exception(int error);
         static git_oid oid(const char *sha);

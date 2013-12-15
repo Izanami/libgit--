@@ -5,8 +5,14 @@ namespace Git {
         git_threads_init();
         int error = git_repository_open(&repo, path);
          exception(error);
-    } Repo::Repo(git_repository * repo) {
+    }
+
+    Repo::Repo(git_repository * repo) {
         this->repo = repo;
+    }
+
+    Repo::~Repo() {
+        git_repository_free(this->repo);
     }
 
     void Repo::exception(int error) {
@@ -23,11 +29,11 @@ namespace Git {
     }
 
 
-    Repo *Repo::init(const char *path, const bool bare) {
+    std::shared_ptr <Repo> Repo::init(const char *path, const bool bare) {
         git_repository *repo = nullptr;
         int error = git_repository_init(&repo, path, bare);
         exception(error);
-        return new Repo(repo);
+        return std::shared_ptr <Repo> (new Repo(repo));
     }
 
     Repo *Repo::clone(const char *path) {

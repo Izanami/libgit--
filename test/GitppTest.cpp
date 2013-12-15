@@ -15,18 +15,17 @@ void GitppTest::setUp()
 
 void GitppTest::tearDown()
 {
-    delete repo;
     remove_all(path);
 }
 
 void GitppTest::testInit()
 {
-    delete Git::Repo::init(path.string().c_str());
+    Git::Repo::init(path.string().c_str());
 }
 
 void GitppTest::testConstructor()
 {
-    delete new Git::Repo(path.string().c_str());
+    Git::Repo(path.string().c_str());
 }
 
 void GitppTest::testClone()
