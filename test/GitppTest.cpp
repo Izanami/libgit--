@@ -25,7 +25,7 @@ void GitppTest::testInit()
 
 void GitppTest::testConstructor()
 {
-    Git::Repo(path.string());
+    Git::Repo::open(path.string());
 }
 
 void GitppTest::testClone()

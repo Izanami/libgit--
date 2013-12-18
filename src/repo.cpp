@@ -29,18 +29,26 @@ namespace Git {
     }
 
 
+    std::shared_ptr <Repo> Repo::open(const std::string &path) {
+        return std::shared_ptr <Repo> (new Repo(path));
+    }
+
+    std::shared_ptr <Repo> Repo::open(git_repository * repo) {
+        return std::shared_ptr <Repo> (new Repo(repo));
+    }
+
     std::shared_ptr <Repo> Repo::init(const std::string &path, const bool bare) {
         git_repository *repo = nullptr;
         int error = git_repository_init(&repo, path.c_str(), bare);
         exception(error);
-        return std::shared_ptr <Repo> (new Repo(repo));
+        return open(repo);
     }
 
-    Repo *Repo::clone(const std::string &path) {
+    std::shared_ptr <Repo> Repo::clone(const std::string &path) {
         git_repository *repolone = nullptr;
         int error = git_clone(&repolone, this->path().c_str(), path.c_str(), NULL);
         exception(error);
-        return new Repo(repolone);
+        return open(repolone);
     }
 
     const std::string Repo::path() {
