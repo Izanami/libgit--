@@ -7,13 +7,13 @@
 namespace Git {
     class Repo {
       public:
-        Repo(const std::string &path);
-         Repo(git_repository * repo);
          ~Repo();
+        static std::shared_ptr <Repo> open(const std::string &path);
+        static std::shared_ptr <Repo> open(git_repository * repo);
         static std::shared_ptr <Repo> init(const std::string &path, const bool bare = false);
 
         // Clone
-        Repo *clone(const std::string &path);
+        std::shared_ptr <Repo> clone(const std::string &path);
         static void clone(const std::string &url, const std::string &path);
 
         // Lookup
@@ -24,6 +24,8 @@ namespace Git {
 
       private:
         Repo(Repo &Repo);
+        Repo(const std::string &path);
+        Repo(git_repository * repo);
          git_repository * repo;
         static void exception(int error);
         static git_oid oid(const std::string &sha);
