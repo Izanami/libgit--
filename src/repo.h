@@ -1,6 +1,6 @@
-#ifndef GITPP_H
+#ifndef GIT_REPO_H
 
-#define GITPP_H
+#define GIT_REPO_H
 #include <git2.h>
 #include <memory>
 

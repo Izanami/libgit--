@@ -1,7 +1,11 @@
-add_library(git++ SHARED repo.cpp)
+add_library(git++ SHARED repo.cpp commit.cpp)
 target_link_libraries(git++ git2)
 INSTALL(TARGETS git++
       RUNTIME DESTINATION bin
       LIBRARY DESTINATION lib
       ARCHIVE DESTINATION lib
       )
+
+INSTALL(FILES repo.h commit.h
+      DESTINATION include/git++
+)
