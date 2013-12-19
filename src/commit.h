@@ -6,9 +6,8 @@
 
 namespace Git {
     class Commit {
-        public:
-        static std::shared_ptr <Commit> new();
+      public:
+        static std::shared_ptr < Commit > new();
     };
 }
-
 #endif
