@@ -1,41 +1,41 @@
-#include "GitppTest.h"
+#include "RepoTest.h"
 #include "../src/repo.h"
 
 using namespace boost::filesystem;
 
 // Registers the fixture into the 'registry'
-CPPUNIT_TEST_SUITE_REGISTRATION(GitppTest);
+CPPUNIT_TEST_SUITE_REGISTRATION(RepoTest);
 
-void GitppTest::setUp()
+void RepoTest::setUp()
 {
     path = unique_path();
     create_directories(path);
     repo = Git::Repo::init(path.string());
 }
 
-void GitppTest::tearDown()
+void RepoTest::tearDown()
 {
     remove_all(path);
 }
 
-void GitppTest::testInit()
+void RepoTest::testInit()
 {
     Git::Repo::init(path.string());
 }
 
-void GitppTest::testConstructor()
+void RepoTest::testConstructor()
 {
     Git::Repo::open(path.string());
 }
 
-void GitppTest::testClone()
+void RepoTest::testClone()
 {
     boost::filesystem::path tmpdir = unique_path();
     repo->clone(tmpdir.string());
     remove_all(tmpdir);
 }
 
-void GitppTest::testLookup()
+void RepoTest::testLookup()
 {
     repo->lookup("HEAD");
 }
