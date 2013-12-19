@@ -29,7 +29,6 @@ namespace Git {
          Repo(const std::string & path);
          Repo(git_repository * repo);
         git_repository *repo;
-        static void exception(int error);
         static git_oid oid(const std::string & sha);
         static const std::string oid(git_oid & oid);
     };
