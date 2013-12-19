@@ -8,6 +8,13 @@ namespace Git {
     class Commit {
       public:
         static std::shared_ptr < Commit > new();
+        void update();
+
+        const Sig sig();
+        void sig(const std::string & name, const std::string & email);
+
+        const std::string message();
+        void message(const std::string & msg);
     };
 }
 #endif
