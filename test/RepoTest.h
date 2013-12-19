@@ -5,8 +5,8 @@
 #include "boost/filesystem.hpp"
 #include "../src/repo.h"
 
-class GitppTest:public CppUnit::TestFixture {
-    CPPUNIT_TEST_SUITE(GitppTest);
+class RepoTest:public CppUnit::TestFixture {
+    CPPUNIT_TEST_SUITE(RepoTest);
     CPPUNIT_TEST(testInit);
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testClone);
