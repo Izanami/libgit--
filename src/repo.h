@@ -3,9 +3,10 @@
 #define GIT_REPO_H
 #include <git2.h>
 #include <memory>
+#include "commit.h"
 
 namespace Git {
-    class Repo {
+    class Repo:public std::enable_shared_from_this < Repo > {
       public:
         ~Repo();
         static std::shared_ptr < Repo > open(const std::string & path);
@@ -23,6 +24,11 @@ namespace Git {
 
         // Getter
         const std::string path();
+        git_repository *ptr();
+
+        // Commit
+         std::shared_ptr < Git::Commit > commit(const std::string & msg = "");
+
 
       private:
          Repo(Repo & Repo);

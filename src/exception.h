@@ -6,15 +6,15 @@
 
 namespace Git {
     class Exception {
-        public:
-            Exception(const int error);
-            const std::string message();
+      public:
+        Exception(const int error);
+        const std::string message();
 
-        private:
-            const git_error *e;
+      private:
+        const git_error *e;
     };
 
-    void Throw(const int & error);
+    void Throw(const int &error);
 };
 
 #endif
