@@ -1,5 +1,6 @@
 #include "repo.h"
 #include "commit.h"
+#include "exception.h"
 
 namespace Git {
     Commit::Commit(std::shared_ptr < Git::Repo > repo) {
@@ -26,9 +27,9 @@ namespace Git {
         git_oid tree_id, commit_id;
         git_tree *tree;
 
-        git_signature_default(&sig, repo->ptr());
-        git_repository_index(&index, repo->ptr());
-        git_index_write_tree(&tree_id, index);
+        Throw(git_signature_default(&sig, repo->ptr()));
+        Throw(git_repository_index(&index, repo->ptr()));
+        Throw(git_index_write_tree(&tree_id, index));
         git_index_free(index);
 
         git_tree_lookup(&tree, repo->ptr(), &tree_id);
