@@ -30,12 +30,23 @@ namespace Git {
 
     std::shared_ptr < Repo > Repo::clone(const std::string & path) {
         git_repository *repolone = nullptr;
-        Throw(git_clone(&repolone, this->path().c_str(), path.c_str(), NULL));
+        Throw(git_clone
+              (&repolone, this->path().c_str(), path.c_str(), NULL));
         return open(repolone);
     }
 
     const std::string Repo::path() {
         return git_repository_path(repo);
+    }
+
+    git_repository *Repo::ptr() {
+        return repo;
+    }
+
+    std::shared_ptr < Git::Commit > Repo::commit(const std::string & msg) {
+        auto commit = Git::Commit::create(shared_from_this());
+        commit->message(msg);
+        return commit;
     }
 
     void Repo::lookup(const std::string & commit) {

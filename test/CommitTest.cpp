@@ -21,5 +21,5 @@ void CommitTest::tearDown()
 
 void CommitTest::testCreate()
 {
-    Git::Commit::create();
+    repo->commit()->update();
 }
