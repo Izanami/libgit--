@@ -11,7 +11,7 @@ namespace Git {
       public:
         static std::shared_ptr < Commit > create(std::shared_ptr <
                                                  Git::Repo > repo);
-        void update();
+        git_oid update();
 
         //const Sig sig();
         void sig(const std::string & name, const std::string & email);
