@@ -21,7 +21,7 @@ namespace Git {
         return this->__message;
     }
 
-    void Commit::update() {
+    git_oid Commit::update() {
         git_signature *sig;
         git_index *index;
         git_oid tree_id, commit_id;
@@ -35,5 +35,6 @@ namespace Git {
         git_tree_lookup(&tree, repo->ptr(), &tree_id);
         git_commit_create_v(&commit_id, repo->ptr(), "HEAD", sig, sig,
                             NULL, message()->c_str(), tree, 0);
+        return commit_id;
     }
 }
