@@ -1,22 +1,19 @@
 #include "repo.h"
 #include "commit.h"
 #include "exception.h"
-#include "oid.h"
+#include "object.h"
 
 namespace Git {
-    Commit::Commit(std::shared_ptr < Git::Repo > repo)  {
+    Commit::Commit(std::shared_ptr < Git::Repo > repo) {
         this->repo = repo;
-       __message = std::make_shared < std::string > ();
-       __oid = std::make_shared < git_oid > ();
-    }
-
-    Commit::Commit(std::shared_ptr < Git::Repo > repo, git_oid oid) {
+        __message = std::make_shared < std::string > ();
+    } Commit::Commit(std::shared_ptr < Git::Repo > repo,
+                     git_oid commit_oid) {
         this->repo = repo;
         git_commit *commit;
-        git_commit_lookup(&commit, repo->ptr(), &oid);
+        git_commit_lookup(&commit, repo->ptr(), &commit_oid);
         __message->assign(git_commit_message(commit));
-
-        __oid = std::make_shared < git_oid > (oid);
+        oid(commit_oid);
     }
 
     std::shared_ptr < Commit > Commit::create(std::shared_ptr < Git::Repo >
@@ -31,7 +28,8 @@ namespace Git {
 
     std::shared_ptr < Commit > Commit::create(std::shared_ptr < Git::Repo >
                                               repo, std::string oid) {
-        return std::shared_ptr < Commit > (new Commit(repo, Git::oid(oid)));
+        return std::shared_ptr < Commit >
+            (new Commit(repo, Git::oid(oid)));
     }
 
     std::shared_ptr < Commit > Commit::message(const std::string & msg) {
@@ -46,7 +44,7 @@ namespace Git {
     std::shared_ptr < git_oid > Commit::write() {
         git_signature *sig;
         git_index *index;
-        git_oid tree_id, commit_id;
+        git_oid tree_id, commit_oid;
         git_tree *tree;
 
         Throw(git_signature_default(&sig, repo->ptr()));
@@ -55,10 +53,10 @@ namespace Git {
         git_index_free(index);
 
         git_tree_lookup(&tree, repo->ptr(), &tree_id);
-        Throw(git_commit_create_v(&commit_id, repo->ptr(), "HEAD", sig, sig,
-                            NULL, message()->c_str(), tree, 0));
+        Throw(git_commit_create_v
+              (&commit_oid, repo->ptr(), "HEAD", sig, sig, NULL,
+               message()->c_str(), tree, 0));
 
-        __oid = std::make_shared < git_oid > (commit_id);
-        return __oid;
+        return oid(commit_oid);
     }
 }

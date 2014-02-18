@@ -7,7 +7,8 @@ namespace Git {
             throw this;
              giterr_clear();
         }
-    } const std::string Exception::message() {
+    }
+    const std::string Exception::message() {
         if (e != nullptr)
             return e->message;
         else
