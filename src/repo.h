@@ -21,7 +21,7 @@ namespace Git {
 
         /// Open
         static std::shared_ptr < Repo > open(const std::string & path); ///< \param path Path to repository
-        static std::shared_ptr < Repo > open(git_repository * repo); ///< \param repo Repository pointer of libgit2
+        static std::shared_ptr < Repo > open(git_repository * repo);    ///< \param repo Repository pointer of libgit2
 
         /// Initialize a repository
         /*!
@@ -37,8 +37,8 @@ namespace Git {
                           const std::string & path);
 
         // Getter
-        const std::string path(); ///< Path to repository
-        git_repository *ptr(); ///< Repository pointer of libgit2
+        const std::string path();       ///< Path to repository
+        git_repository *ptr();  ///< Repository pointer of libgit2
 
         /// New commit
          std::shared_ptr < Git::Commit > commit();
