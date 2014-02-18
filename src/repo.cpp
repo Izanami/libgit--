@@ -1,5 +1,6 @@
 #include "exception.h"
 #include "repo.h"
+#include "tool.h"
 
 namespace Git {
     Repo::Repo(const std::string & path) {
@@ -43,27 +44,19 @@ namespace Git {
         return repo;
     }
 
-    std::shared_ptr < Git::Commit > Repo::commit(const std::string & msg) {
+    std::shared_ptr < Git::Commit > Repo::commit() {
         auto commit = Git::Commit::create(shared_from_this());
-        commit->message(msg);
         return commit;
     }
 
-    void Repo::lookup(const std::string & commit) {
-        git_commit *commit_c;
-        git_oid commit_oid = oid(commit.c_str());
-        Throw(git_commit_lookup(&commit_c, repo, &commit_oid));
+    std::shared_ptr < Git::Commit > Repo::commit(const git_oid & oid) {
+        auto commit = Git::Commit::create(shared_from_this(), oid);
+        return commit;
     }
 
-    git_oid Repo::oid(const std::string & sha) {
-        git_oid oid;
-        Throw(git_oid_fromstr(&oid, sha.c_str()));
-        return oid;
-    }
-    const std::string Repo::oid(git_oid & oid) {
-        char shortsha[10];
-        git_oid_tostr(shortsha, 9, &oid);
-        return std::string(shortsha);
+    std::shared_ptr < Git::Commit > Repo::commit(const std::string & oid) {
+        auto commit = Git::Commit::create(shared_from_this(), oid);
+        return commit;
     }
 
 }                               // Git

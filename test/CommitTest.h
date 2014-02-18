@@ -8,6 +8,7 @@
 class CommitTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE(CommitTest);
     CPPUNIT_TEST(testCreate);
+    CPPUNIT_TEST(testMessage);
     CPPUNIT_TEST_SUITE_END();
   private:
     boost::filesystem::path path;
@@ -18,6 +19,7 @@ class CommitTest:public CppUnit::TestFixture {
     void tearDown();
     void testInit();
     void testCreate();
+    void testMessage();
 };
 
 #endif                          // GITPP_TEST

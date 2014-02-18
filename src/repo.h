@@ -19,24 +19,20 @@ namespace Git {
         static void clone(const std::string & url,
                           const std::string & path);
 
-        // Lookup
-        void lookup(const std::string & commit);
-
         // Getter
         const std::string path();
         git_repository *ptr();
 
         // Commit
-         std::shared_ptr < Git::Commit > commit(const std::string & msg = "");
-
+         std::shared_ptr < Git::Commit > commit();
+         std::shared_ptr < Git::Commit > commit(const std::string & oid);
+         std::shared_ptr < Git::Commit > commit(const git_oid & oid);
 
       private:
          Repo(Repo & Repo);
          Repo(const std::string & path);
          Repo(git_repository * repo);
         git_repository *repo;
-        static git_oid oid(const std::string & sha);
-        static const std::string oid(git_oid & oid);
     };
 }
 #endif

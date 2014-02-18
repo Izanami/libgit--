@@ -21,5 +21,11 @@ void CommitTest::tearDown()
 
 void CommitTest::testCreate()
 {
-    repo->commit()->update();
+    repo->commit()->message("test")->write();
+}
+
+void CommitTest::testMessage()
+{
+    const std::string message("my little poney");
+    CPPUNIT_ASSERT_EQUAL(message == *repo->commit()->message(message)->message().get(), true);
 }
