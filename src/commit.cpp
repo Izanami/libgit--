@@ -1,7 +1,7 @@
 #include "repo.h"
 #include "commit.h"
 #include "exception.h"
-#include "tool.h"
+#include "oid.h"
 
 namespace Git {
     Commit::Commit(std::shared_ptr < Git::Repo > repo)  {

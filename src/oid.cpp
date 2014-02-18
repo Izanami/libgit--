@@ -1,4 +1,4 @@
-#include "tool.h"
+#include "oid.h"
 #include "exception.h"
 
 namespace Git {

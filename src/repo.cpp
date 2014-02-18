@@ -1,6 +1,6 @@
 #include "exception.h"
 #include "repo.h"
-#include "tool.h"
+#include "oid.h"
 
 namespace Git {
     Repo::Repo(const std::string & path) {
