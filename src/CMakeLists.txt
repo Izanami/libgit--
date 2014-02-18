@@ -1,4 +1,4 @@
-add_library(git++ SHARED repo.cpp commit.cpp exception.cpp)
+add_library(git++ SHARED repo.cpp commit.cpp tool.cpp exception.cpp)
 target_link_libraries(git++ git2)
 INSTALL(TARGETS git++
       RUNTIME DESTINATION bin
