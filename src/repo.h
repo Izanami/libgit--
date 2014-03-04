@@ -19,7 +19,7 @@ namespace Git {
       public:
         ~Repo();
 
-        /// Open
+        /// Open a repository
         static std::shared_ptr < Repo > open(const std::string & path); ///< \param path Path to repository
         static std::shared_ptr < Repo > open(git_repository * repo);    ///< \param repo Repository pointer of libgit2
 
@@ -31,7 +31,7 @@ namespace Git {
         static std::shared_ptr < Repo > init(const std::string & path,
                                              const bool bare = false);
 
-        /// Clone
+        /// Clone a repository
          std::shared_ptr < Repo > clone(const std::string & path);
         static void clone(const std::string & url,
                           const std::string & path);
