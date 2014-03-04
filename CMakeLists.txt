@@ -10,5 +10,8 @@ project(libgit++)
 SET(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -pedantic -Wdocumentation" )
 
 add_subdirectory(src)
-add_subdirectory(test)
 
+if (TEST)
+    message("Test...")
+    add_subdirectory(test)
+ENDIF(TEST)
