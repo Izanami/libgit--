@@ -14,6 +14,7 @@ namespace Git {
     {
 
       public:
+        ~Sig();
         static std::shared_ptr < Sig > create(std::shared_ptr < Repo > repo);
         git_signature *ptr();
 

@@ -13,6 +13,7 @@ namespace Git {
         git_commit *commit;
         git_commit_lookup(&commit, repo->ptr(), &commit_oid);
         __message->assign(git_commit_message(commit));
+        git_commit_free(commit);
         oid(commit_oid);
     }
 

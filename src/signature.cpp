@@ -9,6 +9,10 @@ namespace Git {
         Throw(git_signature_default(&sig, repo->ptr()));
     }
 
+    Sig::~Sig() {
+        git_signature_free(sig);
+    }
+
     std::shared_ptr < Sig > Sig::create(std::shared_ptr < Repo > repo) {
         return std::shared_ptr < Sig > (new Sig(repo));
     }
