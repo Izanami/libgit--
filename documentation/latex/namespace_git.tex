@@ -1,6 +1,11 @@
 \hypertarget{namespace_git}{\section{Git Namespace Reference}
 \label{namespace_git}\index{Git@{Git}}
 }
+
+
+libgit++  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,16 +13,41 @@ class \hyperlink{class_git_1_1_commit}{Commit}
 \item 
 class \hyperlink{class_git_1_1_exception}{Exception}
 \item 
+class \hyperlink{class_git_1_1_object}{Object}
+\item 
 class \hyperlink{class_git_1_1_repo}{Repo}
+\begin{DoxyCompactList}\small\item\em Manage repository. \end{DoxyCompactList}\item 
+class \hyperlink{class_git_1_1_sig}{Sig}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespace_git_a278e75304a5420da6ca1611ce9ffddc0}{Throw} (const int \&error)
+\item 
+git\-\_\-oid \hyperlink{namespace_git_a20e639531f5c04252e0ce86622c2e77e}{oid} (const std\-::string \&sha)
+\item 
+const std\-::string \hyperlink{namespace_git_a7058573edae76cc2fbafcfe04e13dabc}{oid} (git\-\_\-oid \&oid)
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+libgit++ 
+
 \subsection{Function Documentation}
+\hypertarget{namespace_git_a20e639531f5c04252e0ce86622c2e77e}{\index{Git@{Git}!oid@{oid}}
+\index{oid@{oid}!Git@{Git}}
+\subsubsection[{oid}]{\setlength{\rightskip}{0pt plus 5cm}git\-\_\-oid Git\-::oid (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{sha}
+\end{DoxyParamCaption}
+)}}\label{namespace_git_a20e639531f5c04252e0ce86622c2e77e}
+\hypertarget{namespace_git_a7058573edae76cc2fbafcfe04e13dabc}{\index{Git@{Git}!oid@{oid}}
+\index{oid@{oid}!Git@{Git}}
+\subsubsection[{oid}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Git\-::oid (
+\begin{DoxyParamCaption}
+\item[{git\-\_\-oid \&}]{oid}
+\end{DoxyParamCaption}
+)}}\label{namespace_git_a7058573edae76cc2fbafcfe04e13dabc}
 \hypertarget{namespace_git_a278e75304a5420da6ca1611ce9ffddc0}{\index{Git@{Git}!Throw@{Throw}}
 \index{Throw@{Throw}!Git@{Git}}
 \subsubsection[{Throw}]{\setlength{\rightskip}{0pt plus 5cm}void Git\-::\-Throw (

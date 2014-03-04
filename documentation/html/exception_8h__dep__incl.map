@@ -1,4 +1,7 @@
 <map id="src/exception.h" name="src/exception.h">
-<area shape="rect" id="node2" href="$exception_8cpp.html" title="src/exception.cpp" alt="" coords="5,80,136,107"/>
-<area shape="rect" id="node3" href="$repo_8cpp.html" title="src/repo.cpp" alt="" coords="161,80,260,107"/>
+<area shape="rect" id="node2" href="$commit_8cpp.html" title="src/commit.cpp" alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node3" href="$exception_8cpp.html" title="src/exception.cpp" alt="" coords="145,80,276,107"/>
+<area shape="rect" id="node4" href="$object_8cpp.html" title="src/object.cpp" alt="" coords="301,80,408,107"/>
+<area shape="rect" id="node5" href="$repo_8cpp.html" title="src/repo.cpp" alt="" coords="433,80,532,107"/>
+<area shape="rect" id="node6" href="$signature_8cpp.html" title="src/signature.cpp" alt="" coords="557,80,685,107"/>
 </map>

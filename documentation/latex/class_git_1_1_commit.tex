@@ -5,61 +5,124 @@
 
 {\ttfamily \#include $<$commit.\-h$>$}
 
+
+
+Inheritance diagram for Git\-:\-:Commit\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_git_1_1_commit__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Git\-:\-:Commit\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_git_1_1_commit__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_git_1_1_commit_a3540ad2a8f51a895dcb508b95ca8fd39}{update} ()
-\item 
-void \hyperlink{class_git_1_1_commit_aa759cb4bb4a1ae454d5d76896fabe787}{sig} (const std\-::string \&name, const std\-::string \&email)
-\item 
-const std\-::string \hyperlink{class_git_1_1_commit_a54d5713f3bff0b54935d55a72c71d4e8}{message} ()
-\item 
-void \hyperlink{class_git_1_1_commit_a0034dbec5ae88697b8896da8254620de}{message} (const std\-::string \&msg)
-\end{DoxyCompactItemize}
+std\-::shared\-\_\-ptr$<$ git\-\_\-oid $>$ \hyperlink{class_git_1_1_commit_a2a1b16bcfd4b7a75975989eb82fe3e15}{write} ()
+\begin{DoxyCompactList}\small\item\em Write commit. \end{DoxyCompactList}\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_sig}{Sig} $>$ \hyperlink{class_git_1_1_commit_a617691251680bf70172e8518fb843039}{sig} ()
+\begin{DoxyCompactList}\small\item\em Get signature of commit. \end{DoxyCompactList}\item 
+const std\-::shared\-\_\-ptr\\*
+$<$ std\-::string $>$ \hyperlink{class_git_1_1_commit_ae4bc4aedc443268ecfc5a02aaffc34ce}{message} ()
+\begin{DoxyCompactList}\small\item\em Message. \end{DoxyCompactList}\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Commit} $>$ \hyperlink{class_git_1_1_commit_a818d2cbd21bff936e6c0fcbc2a4b4017}{message} (const std\-::string \&msg)
+\begin{DoxyCompactList}\small\item\em Set message of commit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Commit} $>$ \hyperlink{class_git_1_1_commit_ad90040d7ee2670ea170ff071a5bb09bc}{create} ()
+static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Commit} $>$ \hyperlink{class_git_1_1_commit_ae3f5e711164b0330c93c1de312a98a76}{create} (std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Git\-::\-Repo} $>$ repo)
+\begin{DoxyCompactList}\small\item\em New empty commit. \end{DoxyCompactList}\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Commit} $>$ \hyperlink{class_git_1_1_commit_aa71566577e2bd2f5cc97c8838b620e18}{create} (std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Git\-::\-Repo} $>$ repo, git\-\_\-oid commit\-\_\-oid)
+\begin{DoxyCompactList}\small\item\em Get commit. \end{DoxyCompactList}\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Commit} $>$ \hyperlink{class_git_1_1_commit_aa4c087f4554002c79c8b18b2afc4a7f8}{create} (std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Git\-::\-Repo} $>$ repo, std\-::string commit\-\_\-oid)
 \end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_git_1_1_commit_ad90040d7ee2670ea170ff071a5bb09bc}{\index{Git\-::\-Commit@{Git\-::\-Commit}!create@{create}}
+\hypertarget{class_git_1_1_commit_ae3f5e711164b0330c93c1de312a98a76}{\index{Git\-::\-Commit@{Git\-::\-Commit}!create@{create}}
 \index{create@{create}!Git::Commit@{Git\-::\-Commit}}
 \subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Commit} $>$ Git\-::\-Commit\-::create (
 \begin{DoxyParamCaption}
-{}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Repo} $>$}]{repo}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_commit_ad90040d7ee2670ea170ff071a5bb09bc}
-\hypertarget{class_git_1_1_commit_a54d5713f3bff0b54935d55a72c71d4e8}{\index{Git\-::\-Commit@{Git\-::\-Commit}!message@{message}}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_commit_ae3f5e711164b0330c93c1de312a98a76}
+
+
+New empty commit. 
+
+\hypertarget{class_git_1_1_commit_aa71566577e2bd2f5cc97c8838b620e18}{\index{Git\-::\-Commit@{Git\-::\-Commit}!create@{create}}
+\index{create@{create}!Git::Commit@{Git\-::\-Commit}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Commit} $>$ Git\-::\-Commit\-::create (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Repo} $>$}]{repo, }
+\item[{git\-\_\-oid}]{commit\-\_\-oid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_commit_aa71566577e2bd2f5cc97c8838b620e18}
+
+
+Get commit. 
+
+\hypertarget{class_git_1_1_commit_aa4c087f4554002c79c8b18b2afc4a7f8}{\index{Git\-::\-Commit@{Git\-::\-Commit}!create@{create}}
+\index{create@{create}!Git::Commit@{Git\-::\-Commit}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Commit} $>$ Git\-::\-Commit\-::create (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Repo} $>$}]{repo, }
+\item[{std\-::string}]{commit\-\_\-oid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_commit_aa4c087f4554002c79c8b18b2afc4a7f8}
+\hypertarget{class_git_1_1_commit_ae4bc4aedc443268ecfc5a02aaffc34ce}{\index{Git\-::\-Commit@{Git\-::\-Commit}!message@{message}}
 \index{message@{message}!Git::Commit@{Git\-::\-Commit}}
-\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Git\-::\-Commit\-::message (
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::shared\-\_\-ptr$<$ std\-::string $>$ Git\-::\-Commit\-::message (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_git_1_1_commit_a54d5713f3bff0b54935d55a72c71d4e8}
-\hypertarget{class_git_1_1_commit_a0034dbec5ae88697b8896da8254620de}{\index{Git\-::\-Commit@{Git\-::\-Commit}!message@{message}}
+)}}\label{class_git_1_1_commit_ae4bc4aedc443268ecfc5a02aaffc34ce}
+
+
+Message. 
+
+Return message of commit \hypertarget{class_git_1_1_commit_a818d2cbd21bff936e6c0fcbc2a4b4017}{\index{Git\-::\-Commit@{Git\-::\-Commit}!message@{message}}
 \index{message@{message}!Git::Commit@{Git\-::\-Commit}}
-\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void Git\-::\-Commit\-::message (
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Commit} $>$ Git\-::\-Commit\-::message (
 \begin{DoxyParamCaption}
 \item[{const std\-::string \&}]{msg}
 \end{DoxyParamCaption}
-)}}\label{class_git_1_1_commit_a0034dbec5ae88697b8896da8254620de}
-\hypertarget{class_git_1_1_commit_aa759cb4bb4a1ae454d5d76896fabe787}{\index{Git\-::\-Commit@{Git\-::\-Commit}!sig@{sig}}
+)}}\label{class_git_1_1_commit_a818d2cbd21bff936e6c0fcbc2a4b4017}
+
+
+Set message of commit. 
+
+\hypertarget{class_git_1_1_commit_a617691251680bf70172e8518fb843039}{\index{Git\-::\-Commit@{Git\-::\-Commit}!sig@{sig}}
 \index{sig@{sig}!Git::Commit@{Git\-::\-Commit}}
-\subsubsection[{sig}]{\setlength{\rightskip}{0pt plus 5cm}void Git\-::\-Commit\-::sig (
-\begin{DoxyParamCaption}
-\item[{const std\-::string \&}]{name, }
-\item[{const std\-::string \&}]{email}
-\end{DoxyParamCaption}
-)}}\label{class_git_1_1_commit_aa759cb4bb4a1ae454d5d76896fabe787}
-\hypertarget{class_git_1_1_commit_a3540ad2a8f51a895dcb508b95ca8fd39}{\index{Git\-::\-Commit@{Git\-::\-Commit}!update@{update}}
-\index{update@{update}!Git::Commit@{Git\-::\-Commit}}
-\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Git\-::\-Commit\-::update (
+\subsubsection[{sig}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Sig} $>$ Git\-::\-Commit\-::sig (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_git_1_1_commit_a3540ad2a8f51a895dcb508b95ca8fd39}
+)}}\label{class_git_1_1_commit_a617691251680bf70172e8518fb843039}
+
+
+Get signature of commit. 
+
+\hypertarget{class_git_1_1_commit_a2a1b16bcfd4b7a75975989eb82fe3e15}{\index{Git\-::\-Commit@{Git\-::\-Commit}!write@{write}}
+\index{write@{write}!Git::Commit@{Git\-::\-Commit}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ git\-\_\-oid $>$ Git\-::\-Commit\-::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_git_1_1_commit_a2a1b16bcfd4b7a75975989eb82fe3e15}
+
+
+Write commit. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

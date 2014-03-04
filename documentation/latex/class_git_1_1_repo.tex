@@ -3,31 +3,63 @@
 }
 
 
+Manage repository.  
+
+
+
+
 {\ttfamily \#include $<$repo.\-h$>$}
 
+
+
+Inheritance diagram for Git\-:\-:Repo\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_git_1_1_repo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Git\-:\-:Repo\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_git_1_1_repo__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_git_1_1_repo_a7040a7f21faf730376faaa97fecbf59b}{$\sim$\-Repo} ()
 \item 
 std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Repo} $>$ \hyperlink{class_git_1_1_repo_a1ce0dc274b2a8bf8d78bf2f2627a295d}{clone} (const std\-::string \&\hyperlink{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{path})
-\item 
-void \hyperlink{class_git_1_1_repo_a2a005418aa8a835d22fac189dcbd3975}{lookup} (const std\-::string \&commit)
-\item 
+\begin{DoxyCompactList}\small\item\em Clone a repository. \end{DoxyCompactList}\item 
 const std\-::string \hyperlink{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{path} ()
+\begin{DoxyCompactList}\small\item\em Path to repository. \end{DoxyCompactList}\item 
+git\-\_\-repository $\ast$ \hyperlink{class_git_1_1_repo_a48cad577a0ee3bdb3f45a6c2a3b9cdcb}{ptr} ()
+\begin{DoxyCompactList}\small\item\em Repository pointer of libgit2. \end{DoxyCompactList}\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Git\-::\-Commit} $>$ \hyperlink{class_git_1_1_repo_ae096c38272dd53e4bdff80aa97bab05a}{commit} ()
+\begin{DoxyCompactList}\small\item\em New commit. \end{DoxyCompactList}\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Git\-::\-Commit} $>$ \hyperlink{class_git_1_1_repo_a5475b08bc58dfaa082388688e9173e80}{commit} (const std\-::string \&\hyperlink{namespace_git_a20e639531f5c04252e0ce86622c2e77e}{oid})
+\begin{DoxyCompactList}\small\item\em Get commit. \end{DoxyCompactList}\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_commit}{Git\-::\-Commit} $>$ \hyperlink{class_git_1_1_repo_af71e0fa2b82a7d044ac74a6719584f63}{commit} (const git\-\_\-oid \&\hyperlink{namespace_git_a20e639531f5c04252e0ce86622c2e77e}{oid})
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Repo} $>$ \hyperlink{class_git_1_1_repo_a6961faf15258c296804fecd4cefce241}{open} (const std\-::string \&\hyperlink{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{path})
-\item 
+\begin{DoxyCompactList}\small\item\em Open a repository. \end{DoxyCompactList}\item 
 static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Repo} $>$ \hyperlink{class_git_1_1_repo_a10fb7c3b59fbeace3e97918df0f3eb71}{open} (git\-\_\-repository $\ast$repo)
 \item 
 static std\-::shared\-\_\-ptr$<$ \hyperlink{class_git_1_1_repo}{Repo} $>$ \hyperlink{class_git_1_1_repo_a5af0323c729f2387a557095dd43f592e}{init} (const std\-::string \&\hyperlink{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{path}, const bool bare=false)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize a repository. \end{DoxyCompactList}\item 
 static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clone} (const std\-::string \&url, const std\-::string \&\hyperlink{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{path})
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Manage repository. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_git_1_1_repo_a7040a7f21faf730376faaa97fecbf59b}{\index{Git\-::\-Repo@{Git\-::\-Repo}!$\sim$\-Repo@{$\sim$\-Repo}}
@@ -47,6 +79,10 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 \item[{const std\-::string \&}]{path}
 \end{DoxyParamCaption}
 )}}\label{class_git_1_1_repo_a1ce0dc274b2a8bf8d78bf2f2627a295d}
+
+
+Clone a repository. 
+
 \hypertarget{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{\index{Git\-::\-Repo@{Git\-::\-Repo}!clone@{clone}}
 \index{clone@{clone}!Git::Repo@{Git\-::\-Repo}}
 \subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}static void Git\-::\-Repo\-::clone (
@@ -55,6 +91,35 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 \item[{const std\-::string \&}]{path}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}
+\hypertarget{class_git_1_1_repo_ae096c38272dd53e4bdff80aa97bab05a}{\index{Git\-::\-Repo@{Git\-::\-Repo}!commit@{commit}}
+\index{commit@{commit}!Git::Repo@{Git\-::\-Repo}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Commit} $>$ Git\-::\-Repo\-::commit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_git_1_1_repo_ae096c38272dd53e4bdff80aa97bab05a}
+
+
+New commit. 
+
+\hypertarget{class_git_1_1_repo_a5475b08bc58dfaa082388688e9173e80}{\index{Git\-::\-Repo@{Git\-::\-Repo}!commit@{commit}}
+\index{commit@{commit}!Git::Repo@{Git\-::\-Repo}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Commit} $>$ Git\-::\-Repo\-::commit (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{oid}
+\end{DoxyParamCaption}
+)}}\label{class_git_1_1_repo_a5475b08bc58dfaa082388688e9173e80}
+
+
+Get commit. 
+
+\hypertarget{class_git_1_1_repo_af71e0fa2b82a7d044ac74a6719584f63}{\index{Git\-::\-Repo@{Git\-::\-Repo}!commit@{commit}}
+\index{commit@{commit}!Git::Repo@{Git\-::\-Repo}}
+\subsubsection[{commit}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Git\-::\-Commit} $>$ Git\-::\-Repo\-::commit (
+\begin{DoxyParamCaption}
+\item[{const git\-\_\-oid \&}]{oid}
+\end{DoxyParamCaption}
+)}}\label{class_git_1_1_repo_af71e0fa2b82a7d044ac74a6719584f63}
 \hypertarget{class_git_1_1_repo_a5af0323c729f2387a557095dd43f592e}{\index{Git\-::\-Repo@{Git\-::\-Repo}!init@{init}}
 \index{init@{init}!Git::Repo@{Git\-::\-Repo}}
 \subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Repo} $>$ Git\-::\-Repo\-::init (
@@ -63,13 +128,17 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 \item[{const bool}]{bare = {\ttfamily false}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_repo_a5af0323c729f2387a557095dd43f592e}
-\hypertarget{class_git_1_1_repo_a2a005418aa8a835d22fac189dcbd3975}{\index{Git\-::\-Repo@{Git\-::\-Repo}!lookup@{lookup}}
-\index{lookup@{lookup}!Git::Repo@{Git\-::\-Repo}}
-\subsubsection[{lookup}]{\setlength{\rightskip}{0pt plus 5cm}void Git\-::\-Repo\-::lookup (
-\begin{DoxyParamCaption}
-\item[{const std\-::string \&}]{commit}
-\end{DoxyParamCaption}
-)}}\label{class_git_1_1_repo_a2a005418aa8a835d22fac189dcbd3975}
+
+
+Initialize a repository. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to new repository \\
+\hline
+{\em bare} & Bare repository ? \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_git_1_1_repo_a6961faf15258c296804fecd4cefce241}{\index{Git\-::\-Repo@{Git\-::\-Repo}!open@{open}}
 \index{open@{open}!Git::Repo@{Git\-::\-Repo}}
 \subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Repo} $>$ Git\-::\-Repo\-::open (
@@ -77,6 +146,15 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 \item[{const std\-::string \&}]{path}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_repo_a6961faf15258c296804fecd4cefce241}
+
+
+Open a repository. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to repository \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_git_1_1_repo_a10fb7c3b59fbeace3e97918df0f3eb71}{\index{Git\-::\-Repo@{Git\-::\-Repo}!open@{open}}
 \index{open@{open}!Git::Repo@{Git\-::\-Repo}}
 \subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Repo} $>$ Git\-::\-Repo\-::open (
@@ -84,6 +162,11 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 \item[{git\-\_\-repository $\ast$}]{repo}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_git_1_1_repo_a10fb7c3b59fbeace3e97918df0f3eb71}
+
+\begin{DoxyParams}{Parameters}
+{\em repo} & Repository pointer of libgit2 \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}{\index{Git\-::\-Repo@{Git\-::\-Repo}!path@{path}}
 \index{path@{path}!Git::Repo@{Git\-::\-Repo}}
 \subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Git\-::\-Repo\-::path (
@@ -91,6 +174,21 @@ static void \hyperlink{class_git_1_1_repo_ae9021cc783b808df5a5f556c7c7af5c7}{clo
 {}
 \end{DoxyParamCaption}
 )}}\label{class_git_1_1_repo_a2f1d8cc3ef5c9ca9d57738463e75566a}
+
+
+Path to repository. 
+
+\hypertarget{class_git_1_1_repo_a48cad577a0ee3bdb3f45a6c2a3b9cdcb}{\index{Git\-::\-Repo@{Git\-::\-Repo}!ptr@{ptr}}
+\index{ptr@{ptr}!Git::Repo@{Git\-::\-Repo}}
+\subsubsection[{ptr}]{\setlength{\rightskip}{0pt plus 5cm}git\-\_\-repository $\ast$ Git\-::\-Repo\-::ptr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_git_1_1_repo_a48cad577a0ee3bdb3f45a6c2a3b9cdcb}
+
+
+Repository pointer of libgit2. 
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
