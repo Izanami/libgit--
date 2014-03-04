@@ -5,6 +5,7 @@
 #include <memory>
 #include "repo.h"
 #include "object.h"
+#include "signature.h"
 
 namespace Git {
     class Repo;
@@ -21,8 +22,7 @@ namespace Git {
                                                  std::string commit_oid);
          std::shared_ptr < git_oid > write();
 
-        //const Sig sig();
-        void sig(const std::string & name, const std::string & email);
+         std::shared_ptr < Sig > sig();
 
         const std::shared_ptr < std::string > message();
          std::shared_ptr < Commit > message(const std::string & msg);

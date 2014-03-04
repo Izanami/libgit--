@@ -42,21 +42,23 @@ namespace Git {
     }
 
     std::shared_ptr < git_oid > Commit::write() {
-        git_signature *sig;
         git_index *index;
         git_oid tree_id, commit_oid;
         git_tree *tree;
 
-        Throw(git_signature_default(&sig, repo->ptr()));
         Throw(git_repository_index(&index, repo->ptr()));
         Throw(git_index_write_tree(&tree_id, index));
         git_index_free(index);
 
         git_tree_lookup(&tree, repo->ptr(), &tree_id);
         Throw(git_commit_create_v
-              (&commit_oid, repo->ptr(), "HEAD", sig, sig, NULL,
+              (&commit_oid, repo->ptr(), "HEAD", sig()->ptr(), sig()->ptr(), NULL,
                message()->c_str(), tree, 0));
 
         return oid(commit_oid);
+    }
+
+    std::shared_ptr < Sig > Commit::sig() {
+        return Sig::create(repo);
     }
 }
