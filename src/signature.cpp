@@ -9,6 +9,9 @@ namespace Git {
         Throw(git_signature_default(&sig, repo->ptr()));
     }
 
+    Sig::Sig(git_signature *sig) : sig(sig) {
+    }
+
     Sig::~Sig() {
         git_signature_free(sig);
     }
@@ -17,7 +20,15 @@ namespace Git {
         return std::shared_ptr < Sig > (new Sig(repo));
     }
 
+    std::shared_ptr < Sig > Sig::create(git_signature *sig) {
+        return std::shared_ptr < Sig > (new Sig(sig));
+    }
+
     git_signature *Sig::ptr() {
         return sig;
+    }
+
+    Sig Sig::clone() {
+        return Sig(git_signature_dup(sig));
     }
 }
