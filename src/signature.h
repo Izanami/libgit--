@@ -15,11 +15,11 @@ namespace Git {
 
       public:
         ~Sig();
-        Sig clone();
         static std::shared_ptr < Sig > create(std::shared_ptr < Repo > repo);
         static std::shared_ptr < Sig > create(git_signature *sig);
         static std::shared_ptr < Sig > create(const std::string & name, const std::string & email);
         git_signature *ptr();
+        std::shared_ptr < Sig > clone();
 
       private:
          Sig(std::shared_ptr < Repo > repo);

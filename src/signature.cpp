@@ -36,7 +36,7 @@ namespace Git {
         return sig;
     }
 
-    Sig Sig::clone() {
-        return Sig(git_signature_dup(sig));
+    std::shared_ptr < Sig> Sig::clone() {
+        return create(git_signature_dup(sig));
     }
 }
