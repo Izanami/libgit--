@@ -12,6 +12,10 @@ namespace Git {
     Sig::Sig(git_signature *sig) : sig(sig) {
     }
 
+    Sig::Sig(const std::string & name, const std::string & email) {
+        Throw(git_signature_now(&sig, name.c_str(), email.c_str()));
+    }
+
     Sig::~Sig() {
         git_signature_free(sig);
     }
@@ -22,6 +26,10 @@ namespace Git {
 
     std::shared_ptr < Sig > Sig::create(git_signature *sig) {
         return std::shared_ptr < Sig > (new Sig(sig));
+    }
+
+    std::shared_ptr < Sig > Sig::create(const std::string & name, const std::string & email) {
+        return std::shared_ptr < Sig > (new Sig(name, email));
     }
 
     git_signature *Sig::ptr() {

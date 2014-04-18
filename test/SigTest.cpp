@@ -22,5 +22,6 @@ void SigTest::tearDown()
 void SigTest::testCreate()
 {
     repo->commit()->sig();
+    Git::Sig::create("foo baz", "example@example.org");
 }
 
