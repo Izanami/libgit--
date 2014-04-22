@@ -1,5 +1,5 @@
 #include "RepoTest.h"
-#include "../src/repo.h"
+#include "../src/Repository.h"
 
 using namespace boost::filesystem;
 
@@ -10,7 +10,7 @@ void RepoTest::setUp()
 {
     path = unique_path();
     create_directories(path);
-    repo = Git::Repo::init(path.string());
+    repo = Git::Repository::init(path.string());
 }
 
 void RepoTest::tearDown()
@@ -20,12 +20,12 @@ void RepoTest::tearDown()
 
 void RepoTest::testInit()
 {
-    Git::Repo::init(path.string());
+    Git::Repository::init(path.string());
 }
 
 void RepoTest::testConstructor()
 {
-    Git::Repo::open(path.string());
+    Git::Repository::open(path.string());
 }
 
 void RepoTest::testClone()

@@ -1,6 +1,6 @@
 #include "SigTest.h"
-#include "../src/repo.h"
-#include "../src/signature.h"
+#include "../src/Repository.h"
+#include "../src/Signature.h"
 
 using namespace boost::filesystem;
 
@@ -11,7 +11,7 @@ void SigTest::setUp()
 {
     path = unique_path();
     create_directories(path);
-    repo = Git::Repo::init(path.string());
+    repo = Git::Repository::init(path.string());
 }
 
 void SigTest::tearDown()
@@ -21,7 +21,7 @@ void SigTest::tearDown()
 
 void SigTest::testCreate()
 {
-    repo->commit()->sig();
-    Git::Sig::create("foo baz", "example@example.org");
+    repo->createCommit()->signature();
+    Git::Signature::create("foo baz", "example@example.org");
 }
 

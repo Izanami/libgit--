@@ -3,7 +3,7 @@
 #define GITPP_TEST
 #include <cppunit/extensions/HelperMacros.h>
 #include "boost/filesystem.hpp"
-#include "../src/repo.h"
+#include "../src/Repository.h"
 
 class SigTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE(SigTest);
@@ -11,7 +11,7 @@ class SigTest:public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE_END();
   private:
     boost::filesystem::path path;
-    std::shared_ptr < Git::Repo > repo;
+    std::shared_ptr < Git::Repository > repo;
 
   public:
     void setUp();

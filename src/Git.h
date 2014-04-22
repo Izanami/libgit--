@@ -1,0 +1,5 @@
+#include "Exception.h"
+#include "Repository.h"
+#include "Object.h"
+#include "Signature.h"
+#include "Commit.h"
