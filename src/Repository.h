@@ -43,6 +43,9 @@ public:
     std::shared_ptr<Git::Commit> getCommit(const std::string& oid);
     std::shared_ptr<Git::Commit> getCommit(const git_oid&);
 
+    /// Test is repository
+    bool isRepository(const std::string& path);
+
 private:
     Repository(Repository&);
     Repository(const std::string& path);

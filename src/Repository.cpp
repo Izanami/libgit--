@@ -69,4 +69,9 @@ std::shared_ptr<Git::Commit> Repository::getCommit(const std::string& oid)
     return commit;
 }
 
+bool isRepository(const std::string& path)
+{
+    return git_repository_open_ext(NULL, path.c_str(), GIT_REPOSITORY_OPEN_NO_SEARCH, NULL) == 0;
+}
+
 } // Git
