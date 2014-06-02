@@ -9,14 +9,14 @@ Repositories
 ### Init(Simple)
 ```
 /* With working directory: */
-auto git = Git::init(“/tmp/…”);
+auto git = Git::Repository::init(“/tmp/…”);
 /* …or bare: */
-auto git = Git::init(“/tmp/…”, true);
+auto git = Git::Repository::init(“/tmp/…”, true);
 ```
 
 ### Clone(Simple)
 ```
-auto git = Git::clone(“http://…”, “/tmp/…”)
+auto git = Git::Repository::clone(“http://…”, “/tmp/…”)
 /* With Git::Repository object */
 git->clone(“/tmp/…”);
 ```
@@ -28,5 +28,5 @@ auto git = Git::Repository::open(“/tmp/…”)
 
 ### Check If Repository
 ```
-isRepository(“/tmp/…”);
+Git::Repository::isRepository(“/tmp/…”);
 ```
