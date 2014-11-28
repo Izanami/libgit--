@@ -47,6 +47,8 @@ git_signature* Signature::ptr()
 
 std::shared_ptr<Signature> Signature::clone()
 {
-    return cast(git_signature_dup(s_signature));
+    git_signature* signature;
+    git_signature_dup(&signature, s_signature);
+    return cast(signature);
 }
 }
