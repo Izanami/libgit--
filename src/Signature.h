@@ -14,7 +14,7 @@ class Signature : public std::enable_shared_from_this<Signature>,
 public:
     ~Signature();
     static std::shared_ptr<Signature> get(std::shared_ptr<Repository>);
-    static std::shared_ptr<Signature> cast(git_signature*);
+    static std::shared_ptr<Signature> create(git_signature*);
     static std::shared_ptr<Signature> create(const std::string& name, const std::string& email);
     git_signature* ptr();
     std::shared_ptr<Signature> clone();

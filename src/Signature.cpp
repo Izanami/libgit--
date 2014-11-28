@@ -30,7 +30,7 @@ std::shared_ptr<Signature> Signature::get(std::shared_ptr<Repository> repository
     return std::shared_ptr<Signature>(new Signature(repository));
 }
 
-std::shared_ptr<Signature> Signature::cast(git_signature* signature)
+std::shared_ptr<Signature> Signature::create(git_signature* signature)
 {
     return std::shared_ptr<Signature>(new Signature(signature));
 }
@@ -49,6 +49,6 @@ std::shared_ptr<Signature> Signature::clone()
 {
     git_signature* signature;
     git_signature_dup(&signature, s_signature);
-    return cast(signature);
+    return create(signature);
 }
 }
