@@ -22,4 +22,5 @@ install_manifest.txt
 #####
 scripts
 test/test
+test/libgitpp-test
 doc/
